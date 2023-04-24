@@ -156,6 +156,7 @@ export const buttonColors = colors.filter(o => o.id !== 1);
 
 export const batteryStateList = [
   null,
+  'Charging',
   'Bad',
   'Low',
   'Ok',
@@ -262,6 +263,7 @@ const giantReconHl1800 = [
 ];
 
 export const controlMode = {id: -1, name: "Control mode"};
+export const currentConfiguration = {id: -2, name: "Current configuration"};
 
 export const headlightList = [
   {
@@ -524,6 +526,15 @@ const cycliqFly6Ce = [
   { id: 62, name: 'Flash Low' }
 ];
 
+const brytonGardia300 = [
+  { id: 0, name: 'Off' },
+  { id: 2, name: 'High Solid' },
+  { id: 4, name: 'Low Solid' },
+  { id: 8, name: 'Group Ride' },
+  { id: 6, name: 'Night Flash' },
+  { id: 7, name: 'Day Flash' }
+];
+
 export const taillightList = [
   {
     id: 1,
@@ -540,6 +551,24 @@ export const taillightList = [
         [bontragerFlareRtModes[3]],
         [bontragerFlareRtModes[4]],
         [bontragerFlareRtModes[5]]
+      ]
+    }
+  },
+  {
+    id: 14,
+    name: 'Bryton Gardia R300',
+    modes: brytonGardia300,
+    individualNetworkOnly: false,
+    lightModes: [0, 610283536], // 610283536
+    defaultLightPanel: {
+      shortName: 'Gardia 300',
+      buttonGroups: [
+        [controlMode, brytonGardia300[0]],
+        [brytonGardia300[1]],
+        [brytonGardia300[2]],
+        [brytonGardia300[3]],
+        [brytonGardia300[4]],
+        [brytonGardia300[5]],
       ]
     }
   },
@@ -800,7 +829,7 @@ export const getBatteryOperator = (operator) => {
 };
 
 export const getBatteryValue = (value) => {
-  return 6 - value;
+  return 7 - value;
 };
 
 export const arrayMove = (array, oldIndex, newIndex) => {
